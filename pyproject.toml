@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reconkit"
+version = "0.1.0"
+description = "A lightweight reconnaissance multi-tool: subdomains via CT logs, async port scanning, directory busting, unified HTML reports."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "ThorrijaDEV" }]
+requires-python = ">=3.9"
+dependencies = ["aiohttp>=3.9"]
+keywords = ["security", "recon", "pentesting", "osint", "cli"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+]
+
+[project.scripts]
+reconkit = "reconkit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ThorrijaDEV/reconkit"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/reconkit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
